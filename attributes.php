@@ -32,7 +32,7 @@ class Attributes implements \IteratorAggregate, \Countable {
 	 * @return bool
 	 */
 	public function has( $name, $value = '' ) {
-		return empty( $value ) ? isset( $name, $this->_atts ) : in_array( $value, $this->get( $name, 'array' ) );
+		return empty( $value ) ? isset( $this->_atts[ $name ] ) : in_array( $value, $this->get( $name, 'array' ) );
 	}
 
 	/**
@@ -46,7 +46,7 @@ class Attributes implements \IteratorAggregate, \Countable {
 	public function get( $name, $format = 'string' ) {
 		$value = null;
 		if ( 'array' === $format ) {
-			$value = isset( $name, $this->_atts ) ? explode( ' ', $this->_atts[ $name ] ) : array();
+			$value = $this->has( $name ) ? explode( ' ', $this->_atts[ $name ] ) : array();
 		} else {
 			$value = $this->has( $name ) ? $this->_atts[ $name ] : null;
 		}
