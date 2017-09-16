@@ -1,6 +1,6 @@
 {
   "name": "wpscholar/elements",
-  "description": "An HTML elements library for PHP",
+  "description": "A PHP library for creating and manipulating HTML",
   "type": "library",
   "license": "GPL-2.0+",
   "authors": [
