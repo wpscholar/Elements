@@ -37,7 +37,7 @@ final class ElementFactory {
 	 *
 	 * @return ElementNode
 	 */
-	public static function createElement( $tag, array $atts = array(), ElementNode $class = null ) {
+	public static function createElement( $tag, array $atts = array(), $class = '' ) {
 		$tag = strtolower( $tag );
 		if ( ! class_exists( $class ) ) {
 			if ( in_array( $tag, self::$_empty_elements ) ) {
