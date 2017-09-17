@@ -69,7 +69,7 @@ class EnclosingElement extends ElementNode {
 	 */
 	final public function set_content( $content ) {
 		$this->removeAll();
-		$nodes = (array) $content;
+		$nodes = is_array( $content ) ? $content : [ $content ];
 		foreach ( $nodes as $node ) {
 			if ( is_string( $node ) ) {
 				$node = new TextNode( $node );
