@@ -30,9 +30,15 @@ class EnclosingElement extends ElementNode {
 	/**
 	 * Append a node
 	 *
-	 * @param Node $node
+	 * @param string|Node $node
 	 */
-	public function append( Node $node ) {
+	public function append( $node ) {
+		if ( is_string( $node ) ) {
+			$node = new TextNode( $node );
+		}
+		if ( ! is_object( $node ) || ! $node instanceof Node ) {
+			throw new \InvalidArgumentException( 'Invalid node' );
+		}
 		$node->parent = $this;
 		array_push( $this->_children, $node );
 	}
